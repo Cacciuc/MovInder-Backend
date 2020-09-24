@@ -4,7 +4,8 @@
   "description": "movinder project idea from 9gag",
   "main": "build/server.js",
   "scripts": {
-    "tsc": "tsc",
+    "start": "tsc . && node build/server.js",
+    "tsc": "tsc .",
     "dev": "ts-node ./app/server.ts"
   },
   "keywords": [],
