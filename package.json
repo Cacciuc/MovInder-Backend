@@ -1,0 +1,20 @@
+{
+  "name": "movinder-backend",
+  "version": "1.0.0",
+  "description": "backend for the movinder 9gag idea",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node ./src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cacciuc/MovInder-Backend.git"
+  },
+  "author": "Marco Cacciatore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cacciuc/MovInder-Backend/issues"
+  },
+  "homepage": "https://github.com/Cacciuc/MovInder-Backend#readme"
+}
