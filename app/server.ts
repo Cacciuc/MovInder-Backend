@@ -38,13 +38,13 @@ app.use(ExpressSession({
 
 
 // define the port the express app will listen on
-let port = 3000;
+let port = 443;
 if (process.env.PORT !== undefined) {
   port = parseInt(process.env.PORT);
 }
 
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://localhost'); //adjust url 
+  res.header('Access-Control-Allow-Origin', 'https://movinder9gag.herokuapp.com/'); //adjust url 
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
