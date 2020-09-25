@@ -1,6 +1,7 @@
 // import everything from express and assign it to the express variable
 import express from 'express';
 import ExpressSession from 'express-session';
+import cookieParser from 'cookie-parser';
 
 // import all the controllers. If you add a new controller, make sure to import it here as well.
 import {MovieUserController, UserController} from './controllers';
@@ -31,7 +32,7 @@ app.use(express.json());
 
 app.use(ExpressSession({
   secret: 'atghjtztergbxf+SDG"*ZEH',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: { maxAge: 3600000} // after one hour without Server request the cookie expires and a relogin needs to be done
 }));
@@ -44,7 +45,7 @@ if (process.env.PORT !== undefined) {
 }
 
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://movinder9gag.herokuapp.com/'); //adjust url 
+  res.header('Access-Control-Allow-Origin', 'http://movinder9gag.herokuapp.com/'); 
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -53,6 +54,7 @@ app.use(function (req, res, next) {
 
 app.use('/movie', MovieUserController);
 app.use('/login', UserController);
+
 
 
 sequelize.sync().then(() => {

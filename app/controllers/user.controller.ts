@@ -224,9 +224,10 @@ router.post('/', async (req: Request, res: Response) => {
   instance.password = ''; // salt has to be returned, because otherwise password can not be hashed
   if (req.session) {
     req.session.user = instance;
-    req.session.user.salt = ''; // salt does not need to be stored in the cookie
+    req.session.user.salt = instance.salt; // salt does not need to be stored in the cookie
     res.statusCode = 200;
-    return res.send(instance.toSimplification());
+    res.send(instance.toSimplification());
+    return;
   }
   return res.send('Error creating a session');
 });
@@ -234,7 +235,7 @@ router.post('/', async (req: Request, res: Response) => {
 /** updates the password of a user
  *  use case: to change the password of the user
  *
- *  security: user who makes the request has to be admin or the user itself
+ *  security: user who makes the request has to be the user himself
  *
  *  @params user id and the new password
  * */
@@ -258,7 +259,7 @@ router.put('/:id/:newPassword', async(req: Request, res: Response) => {
   }
 });
 
-//TODO: currently the frontend provides the salt itself, should be serverside somehow
+
 /** updates a user according to the message body
  *
  * Note: password and salt can not be changed!

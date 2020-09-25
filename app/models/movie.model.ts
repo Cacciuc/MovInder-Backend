@@ -1,8 +1,12 @@
 import {Table, Column, Model, HasMany, BelongsTo, ForeignKey} from 'sequelize-typescript';
 import {MovieCategory} from './moviecategory.model';
+import { MovieUser } from './movieuser.model';
 
 @Table
 export class Movie extends Model<Movie>{
+    @HasMany(()=>MovieUser)
+    movieusers!: MovieUser[];
+
 
     @HasMany(()=>MovieCategory)
     categories!: MovieCategory[];
