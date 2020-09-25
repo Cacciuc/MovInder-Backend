@@ -27,7 +27,7 @@ const app = express_1.default();
 app.use(express_1.default.json());
 app.use(express_session_1.default({
     secret: 'atghjtztergbxf+SDG"*ZEH',
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     cookie: { maxAge: 3600000 } // after one hour without Server request the cookie expires and a relogin needs to be done
 }));
@@ -37,7 +37,7 @@ if (process.env.PORT !== undefined) {
     port = parseInt(process.env.PORT);
 }
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://movinder9gag.herokuapp.com/'); //adjust url 
+    res.header('Access-Control-Allow-Origin', 'http://movinder9gag.herokuapp.com/');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');

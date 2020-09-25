@@ -12,10 +12,12 @@
   "author": "Marco Cacciatore",
   "license": "ISC",
   "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.7",
     "@types/es6-shim": "^0.31.41",
     "@types/express": "^4.17.8",
     "@types/express-session": "^1.17.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",

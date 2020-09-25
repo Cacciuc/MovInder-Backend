@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Movie = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const moviecategory_model_1 = require("./moviecategory.model");
+const movieuser_model_1 = require("./movieuser.model");
 let Movie = class Movie extends sequelize_typescript_1.Model {
     toSimplification() {
         return {
@@ -27,6 +28,10 @@ let Movie = class Movie extends sequelize_typescript_1.Model {
         this.image = simplification['image'];
     }
 };
+__decorate([
+    sequelize_typescript_1.HasMany(() => movieuser_model_1.MovieUser),
+    __metadata("design:type", Array)
+], Movie.prototype, "movieusers", void 0);
 __decorate([
     sequelize_typescript_1.HasMany(() => moviecategory_model_1.MovieCategory),
     __metadata("design:type", Array)
